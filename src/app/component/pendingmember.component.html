@@ -1,0 +1,11 @@
+<p-dataGrid [value]="pendingMembers">
+  <ng-template let-member pTemplate="item">
+    <div class="ui-g-12 ui-md-3" style="padding: 3px;">
+      <p-panel [style]="{'text-align': 'center'}">
+        <img [src]="member.imageLink" class="rounded-circle" style="height: 30%">
+        <div>{{member.name}}</div>
+        <div>{{member.team}}</div>
+      </p-panel>
+    </div>
+  </ng-template>
+</p-dataGrid>

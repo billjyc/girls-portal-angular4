@@ -1,0 +1,136 @@
+<div class="ui-g">
+<div class="ui-g-5">
+  <p-dataList [value]="memberPerformanceAppearanceRanks" [paginator]="true" [rows]="5">
+    <p-header>
+      <p style="font-size: 18px; font-family: Microsoft YaHei UI, Arial; margin-bottom: 0">公演场次排名</p>
+    </p-header>
+    <ng-template let-performanceRank pTemplate="item">
+      <div class="ui-grid ui-grid-responsive ui-fluid"
+           style="font-size:16px;padding:20px;border-bottom:1px solid #D5D5D5;">
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-1 rank" style="text-align: center">
+            {{performanceRank.rank}}
+          </div>
+          <div class="ui-grid-col-3" style="text-align: center;">
+            <a href="{{'/detail/' + performanceRank.memberId}}" target="_blank">
+              <img [src]="performanceRank.imageLink" style="width: 40%; cursor: pointer;"/>
+            </a>
+          </div>
+          <div class="ui-grid-col-6" >
+            <div class="ui-grid-row name" style="text-align: center;">
+              <a href="{{'/detail/' + performanceRank.memberId}}" target="_blank">
+                {{performanceRank.name}}
+              </a>
+            </div>
+            <div class="ui-grid-row team" style="text-align: center;">
+              {{formatTeam(performanceRank.team)}}
+            </div>
+            <div class="ui-grid-row batch" style="text-align: center;">
+              {{performanceRank.batch}}
+            </div>
+          </div>
+          <div class="ui-grid-col-2">
+            <div class="ui-grid-row">
+              {{performanceRank.appearances}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <p-footer>
+      备注: 只要在非特殊环节上台表演（包括前座曲和MC）即被算作出场。
+    </p-footer>
+  </p-dataList>
+</div>
+<div class="ui-g-2"></div>
+<div class="ui-g-5">
+  <p-dataList [value]="memberWeiboRanks" [paginator]="true" [rows]="5">
+    <p-header>
+      <p style="font-size: 18px; font-family: Microsoft YaHei UI, Arial; margin-bottom: 0">微博粉丝排名</p>
+    </p-header>
+    <ng-template let-weiboRank pTemplate="item">
+      <div class="ui-grid ui-grid-responsive ui-fluid"
+           style="font-size:16px;padding:20px;border-bottom:1px solid #D5D5D5;">
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-1 rank" style="text-align: center">
+            {{weiboRank.rank}}
+          </div>
+          <div class="ui-grid-col-3" style="text-align: center;">
+            <a href="{{'/detail/' + weiboRank.memberId}}" target="_blank">
+              <img [src]="weiboRank.imageLink" style="width: 40%; cursor: pointer;"/>
+            </a>
+          </div>
+          <div class="ui-grid-col-6" >
+            <div class="ui-grid-row name" style="text-align: center;">
+              <a href="{{'/detail/' + weiboRank.memberId}}" target="_blank">
+                {{weiboRank.name}}
+              </a>
+            </div>
+            <div class="ui-grid-row team" style="text-align: center;">
+              {{formatTeam(weiboRank.team)}}
+            </div>
+            <div class="ui-grid-row batch" style="text-align: center;">
+              {{weiboRank.batch}}
+            </div>
+          </div>
+          <div class="ui-grid-col-2">
+            <div class="ui-grid-row">
+              {{weiboRank.followersCount}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <p-footer>
+      备注: 更新时间为北京时间20:00。
+    </p-footer>
+  </p-dataList>
+</div>
+</div>
+<div class="ui-g">
+<div class="ui-g-5">
+  <p-dataList [value]="performanceAppRateRank" [paginator]="true" [rows]="5">
+    <p-header>
+      <p style="font-size: 18px; font-family: Microsoft YaHei UI, Arial; margin-bottom: 0">公演出勤率排名</p>
+    </p-header>
+    <ng-template let-appRate pTemplate="item">
+      <div class="ui-grid ui-grid-responsive ui-fluid"
+           style="font-size:16px;padding:20px;border-bottom:1px solid #D5D5D5;">
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-1 rank" style="text-align: center">
+            {{appRate.rank}}
+          </div>
+          <div class="ui-grid-col-3" style="text-align: center;">
+            <a href="{{'/detail/' + appRate.memberId}}" target="_blank">
+              <img [src]="appRate.imageLink" style="width: 40%; cursor: pointer;"/>
+            </a>
+          </div>
+          <div class="ui-grid-col-6" >
+            <div class="ui-grid-row name" style="text-align: center;">
+              <a href="{{'/detail/' + appRate.memberId}}" target="_blank">
+                {{appRate.name}}
+              </a>
+            </div>
+            <div class="ui-grid-row team" style="text-align: center;">
+              {{formatTeam(appRate.team)}}
+            </div>
+            <div class="ui-grid-row batch" style="text-align: center;">
+              {{appRate.batch}}
+            </div>
+          </div>
+          <div class="ui-grid-col-2">
+            <div class="ui-grid-row">
+              {{appRate.appRate | percent: '.2'}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <p-footer>
+      备注：
+      1. 联合公演不在统计范围内；2. 对于兼任成员，只统计其最初所属队伍的公演场次
+
+    </p-footer>
+  </p-dataList>
+</div>
+</div>

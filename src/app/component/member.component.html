@@ -1,0 +1,111 @@
+<!--<p-growl [value]="msgs"></p-growl>-->
+<p-tabView id="memberTab" (onChange)="handleTabChange($event)">
+  <p-tabPanel header="Team SII" [selected]="shouldSelected(1)"
+              headerStyleClass="whiteText"
+              [headerStyle]="{'background-color':'#2399e5'}">
+    <p-dataGrid [value]="members">
+      <ng-template let-member pTemplate="item">
+        <div style="padding:3px" class="ui-g-12 ui-md-3">
+          <p-panel [style]="{'text-align':'center'}">
+            <img [src]="member.imageLink" style="width: 70%;">
+            <div class="name">{{member.name}}</div>
+            <div class="english-name">{{member.englishName}}</div>
+            <div class="batch">{{member.batch}}</div>
+            <button pButton type="button" class="detail-button button-sii" label="详细资料"
+                     (click)="onSelect(member)"></button>
+          </p-panel>
+        </div>
+      </ng-template>
+    </p-dataGrid>
+  </p-tabPanel>
+  <p-tabPanel header="Team NII" [selected]="shouldSelected(2)"
+              [headerStyle]="{'background-color':'#9e57b4'}"
+              headerStyleClass="whiteText">
+      <p-dataGrid [value]="members">
+        <ng-template let-member pTemplate="item">
+          <div style="padding:3px" class="ui-g-12 ui-md-3">
+            <p-panel [style]="{'text-align':'center'}">
+              <img [src]="member.imageLink" style="width: 70%;">
+              <div class="name">{{member.name}}</div>
+              <div class="english-name">{{member.englishName}}</div>
+              <div class="batch">{{member.batch}}</div>
+              <button type="button" class="detail-button button-nii" label="详细资料"
+                      (click)="onSelect(member)">详细资料</button>
+            </p-panel>
+          </div>
+        </ng-template>
+      </p-dataGrid>
+  </p-tabPanel>
+  <p-tabPanel header="Team HII" [selected]="shouldSelected(3)"
+              [headerStyle]="{'background-color':'#f8941d'}"
+                headerStyleClass="whiteText">
+      <p-dataGrid [value]="members">
+        <ng-template let-member pTemplate="item">
+          <div style="padding:3px" class="ui-g-12 ui-md-3">
+            <p-panel [style]="{'text-align':'center'}">
+              <img [src]="member.imageLink" style="width: 70%;">
+              <div class="name">{{member.name}}</div>
+              <div class="english-name">{{member.englishName}}</div>
+              <div class="batch">{{member.batch}}</div>
+              <button type="button" class="detail-button button-hii" label="详细资料"
+                       (click)="onSelect(member)">详细资料</button>
+            </p-panel>
+          </div>
+        </ng-template>
+      </p-dataGrid>
+  </p-tabPanel>
+  <p-tabPanel header="Team X" [selected]="shouldSelected(4)"
+              [headerStyle]="{'background-color':'#b1d61b'}"
+              headerStyleClass="whiteText">
+      <p-dataGrid [value]="members">
+        <ng-template let-member pTemplate="item">
+          <div style="padding:3px" class="ui-g-12 ui-md-3">
+            <p-panel [style]="{'text-align':'center'}">
+              <img [src]="member.imageLink" style="width: 70%;">
+              <div class="name">{{member.name}}</div>
+              <div class="english-name">{{member.englishName}}</div>
+              <div class="batch">{{member.batch}}</div>
+              <button type="button" class="detail-button button-x" label="详细资料"
+                       (click)="onSelect(member)">详细资料</button>
+            </p-panel>
+          </div>
+        </ng-template>
+      </p-dataGrid>
+  </p-tabPanel>
+  <p-tabPanel header="Team XII" [selected]="shouldSelected(5)"
+              [headerStyle]="{'background-color':'#03c070'}"
+              headerStyleClass="whiteText">
+      <p-dataGrid [value]="members">
+        <ng-template let-member pTemplate="item">
+          <div style="padding:3px" class="ui-g-12 ui-md-3">
+            <p-panel [style]="{'text-align':'center'}">
+              <img [src]="member.imageLink" style="width: 70%;">
+              <div class="name">{{member.name}}</div>
+              <div class="english-name">{{member.englishName}}</div>
+              <div class="batch">{{member.batch}}</div>
+              <button type="button" class="detail-button button-xii" label="详细资料"
+                      (click)="onSelect(member)">详细资料</button>
+            </p-panel>
+          </div>
+        </ng-template>
+      </p-dataGrid>
+  </p-tabPanel>
+</p-tabView>
+<!--<p-dataTable [value]="members" [responsive]="true" [rows]="20"
+  selectionMode="single" [(selection)]="selectedMember" (onRowSelect)="onSelect($event)">
+  <p-column field="imageLink" header="头像">
+    <template let-col let-member="rowData" let-ri="rowIndex" pTemplate="body">
+      <img src="{{member[col.field]}}" class="rounded-circle" style="height: 30%">
+    </template>
+  </p-column>
+  <p-column field="name" header="姓名" [sortable]="true"></p-column>
+  <p-column field="team" header="队伍" [sortable]="true">
+    <template let-col let-member="rowData" pTemplate="body">
+      {{formatTeam(member[col.field])}}
+    </template>
+  </p-column>
+</p-dataTable>
+
+<p-paginator rows="{{rows}}" totalRecords="{{total}}" [rowsPerPageOptions]="[10,20,50]"
+  (onPageChange)="paginate($event)"></p-paginator>-->
+

@@ -1,0 +1,68 @@
+.detail-button {
+  font-family: "Microsoft YaHei UI", Arial;
+  width: 145px;
+  height: 30px;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.name {
+  font-size: 20px;
+  line-height: 24px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-family: "Microsoft YaHei UI", Arial;
+}
+
+.batch {
+  font-size: 12px;
+  line-height: 14px;
+  font-family: "Microsoft YaHei", arial;
+}
+
+.english-name {
+  font-size: 12px;
+  line-height: 14px;
+  font-family: "Microsoft YaHei", arial;
+}
+
+
+.tab-sii{
+  background-color: #2399e5;
+}
+
+.button-sii {
+  border: 1px solid #2399e5;
+  background: #2399e5;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.button-nii {
+  border: 1px solid #9e57b4;
+  background: #9e57b4;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.button-hii {
+  border: 1px solid #f8941d;
+  background: #f8941d;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.button-x {
+  border: 1px solid #b1d61b;
+  background: #b1d61b;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.button-xii {
+  border: 1px solid #03c070;
+  background: #03c070;
+  color: whitesmoke;
+  cursor: pointer;
+}
+

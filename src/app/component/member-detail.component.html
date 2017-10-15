@@ -1,0 +1,99 @@
+<div class="ui-g" *ngIf="member">
+  <div class="ui-g-4" style="padding: 5px;">
+    <p-panel [style]="{'text-align': 'center'}">
+      <img class="photo" [src]="member.imageLink" [alt]="member.name"/>
+      <div class="name">{{member.name}}</div>
+      <div>{{formatTeam(member.team)}}</div>
+      <div>{{member.batch}}</div>
+    </p-panel>
+  </div>
+  <div class="ui-g-8" style="padding: 5px">
+    <p-panel header="成员信息">
+      <div class="ui-grid-row">
+        <div class="ui-g-6">
+          <div>昵称：{{member.nickName}}</div>
+          <div>身高：{{member.height}}</div>
+          <div>生日：{{formatDate(member.birthday) | date: 'yyyy-MM-dd'}}</div>
+          <div>血型：{{member.bloodType}}</div>
+          <div>星座：{{member.constellation}}</div>
+          <div>出生地：{{member.birthPlace}}</div>
+        </div>
+        <div class="ui-g-6">
+          <div>个人特长：{{member.speciality}}</div>
+          <div>兴趣爱好：{{member.hobby}}</div>
+          <div>加入时间：{{formatDate(member.joinTime) | date: 'yyyy-MM-dd'}}</div>
+          <div>加入所属：{{member.batch}}</div>
+          <div>最终所属：{{formatTeam(member.team)}}</div>
+          <div>所属公司：{{member.agency}}</div>
+        </div>
+      </div>
+
+      <div class="ui-grid-row">
+        <div class="ui-g-12">
+          <div>链接：<a [href]="member.link" target="_blank">{{member.link}}</a></div>
+          <div>经历备注：
+            <div *ngFor="let desc of formatDesc(member.description)">
+              {{desc}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </p-panel>
+  </div>
+</div>
+
+<div class="ui-g">
+  <div class="ui-grid-row" style="margin-top: 25px;margin-left: 5px;">
+    <h3>公演数据</h3>
+  </div>
+  <p-tabView>
+    <p-tabPanel header="本年度数据">
+      <p-dataTable [value]="performanceHistory" [paginator]="true" [rows]="5"
+                   [style]="{'text-align':'center'}">
+        <p-column field="performanceDate" header="日期" [sortable]="true"></p-column>
+        <p-column field="performanceName" header="公演名称"></p-column>
+        <p-column field="performanceDescription" header="备注"></p-column>
+      </p-dataTable>
+    </p-tabPanel>
+
+    <p-tabPanel header="偶像生涯数据">
+      <p-dataTable [value]="careerHistory" [paginator]="true" [rows]="5"
+                   [style]="{'text-align':'center'}">
+        <p-column field="year" header="年份"></p-column>
+        <p-column field="count" header="出场次数"></p-column>
+      </p-dataTable>
+    </p-tabPanel>
+
+  </p-tabView>
+</div>
+
+<div class="ui-g-12">
+  <div class="ui-grid-row" style="margin-top: 25px;margin-left: 5px;">
+    <h3>微博数据(每天4:00更新)</h3>
+  </div>
+  <div class="ui-grid-row">
+    <p-tabView>
+      <p-tabPanel header="基本数据">
+        <div *ngIf="memberWeiboData">
+          <ul>
+            <li>粉丝数：{{memberWeiboData.weiboFollowerCount}}</li>
+            <li>关注：{{memberWeiboData.weiboFriendsCount}}</li>
+            <li>微博数：{{memberWeiboData.weiboStatusesCount}}</li>
+          </ul>
+        </div>
+      </p-tabPanel>
+      <p-tabPanel header="图表">
+        <p-dropdown [options]="days" [(ngModel)]="selectedDayRange"
+                    (onChange)="dropDownOnChange($event)"
+                    [style]="{'width': '150px', 'float': 'right'}"></p-dropdown>
+
+        <p-chart #chart2 type="line" [data]="lineChartData"
+                 [options]="chartOptions" *ngIf="lineChartData"></p-chart>
+      </p-tabPanel>
+    </p-tabView>
+  </div>
+
+</div>
+
+

@@ -1,0 +1,51 @@
+<p-dataGrid [value]="performances" [paginator]="true" rows="10">
+  <p-header>公演列表</p-header>
+  <ng-template let-performance let-i="index" pTemplate="item">
+    <div class="ui-g-12 ui-md-4" style="padding: 3px;">
+      <p-panel [style]="{'text-align':'center'}">
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-12" style="text-align: center" *ngIf="performance.link">
+            <a [href]="performance.link" target="_blank">
+              <img [src]="performance.logoLink"/>
+            </a>
+          </div>
+          <div class="ui-grid-col-12" style="text-align: center" *ngIf="!performance.link">
+            <img [src]="performance.logoLink"/>
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-12" style="text-align: center">{{performance.name}}</div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-12" style="text-align: center">{{formatTeam(performance.team)}}</div>
+        </div>
+        <!--<div class="ui-grid-row" style="margin-bottom: 10px;">
+          <div class="ui-grid-col-12" style="text-align: center">
+            <button type="button" pButton icon="fa-search"></button>
+          </div>
+        </div>-->
+      </p-panel>
+
+    </div>
+  </ng-template>
+</p-dataGrid>
+
+<div class="ui-g">
+  <p-dataTable [value]="incomingPerformances" [paginator]="true" [rows]="10"
+               [style]="{'text-align':'center'}">
+    <p-header>公演日程</p-header>
+    <p-column header="公演日期">
+      <ng-template let-col let-perf="rowData" pTemplate="body">
+        {{perf.date | date: 'yyyy-MM-dd HH:mm'}}
+      </ng-template>
+    </p-column>
+    <p-column field="name" header="公演名称"></p-column>
+    <p-column header="队伍">
+      <ng-template let-col let-perf="rowData" pTemplate="body">
+        {{formatTeam(perf.team)}}
+      </ng-template>
+    </p-column>
+    <p-column field="description" header="备注"></p-column>
+  </p-dataTable>
+</div>
+
