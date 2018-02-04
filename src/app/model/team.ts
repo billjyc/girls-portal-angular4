@@ -7,5 +7,7 @@ export enum Team {
   NII = 2,
   HII = 3,
   X = 4,
-  XII = 5
+  XII = 5,
+  FT = 6,
+  TRAINEE = 7
 }

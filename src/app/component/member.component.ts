@@ -57,9 +57,15 @@ export class MembersComponent implements OnInit {
 
   handleTabChange(e) {
     const index = e.index;
-    this.team = index + 1;
+    if (index === 4) {
+      this.team = 6;
+    } else if (index === 5) {
+      this.team = 7;
+    } else {
+      this.team = index + 1;
+    }
     Cookie.set('teamId', this.team.toString());
-    this.getMembersByTeamId(index + 1);
+    this.getMembersByTeamId(this.team);
   }
 
   getMembersByTeamId(id: number) {

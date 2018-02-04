@@ -66,3 +66,10 @@
   cursor: pointer;
 }
 
+.button-trainee {
+  border: 1px solid #a7b0ba;
+  background: #a7b0ba;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
