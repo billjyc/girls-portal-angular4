@@ -57,7 +57,7 @@ export class MembersComponent implements OnInit {
 
   handleTabChange(e) {
     const index = e.index;
-    if (index <= 4) {
+    if (index < 4) {
       this.team = index + 1;
       Cookie.set('teamId', this.team.toString());
       this.getMembersByTeamId(this.team);
