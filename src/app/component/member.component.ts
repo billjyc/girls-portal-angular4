@@ -57,15 +57,13 @@ export class MembersComponent implements OnInit {
 
   handleTabChange(e) {
     const index = e.index;
-    if (index === 4) {
-      this.team = 6;
-    } else if (index === 5) {
-      this.team = 7;
-    } else {
+    if (index <= 4) {
       this.team = index + 1;
+      Cookie.set('teamId', this.team.toString());
+      this.getMembersByTeamId(this.team);
+    } else {
+      this.getPendingMembers();
     }
-    Cookie.set('teamId', this.team.toString());
-    this.getMembersByTeamId(this.team);
   }
 
   getMembersByTeamId(id: number) {
@@ -85,6 +83,11 @@ export class MembersComponent implements OnInit {
         this.members = <Member[]> result.rows;
         this.total = result.total;
       });
+  }
+
+  getPendingMembers() {
+    this.memberService.getPendingMembers()
+      .then(data => {this.members = data; });
   }
 
   goToDetail(): void {
