@@ -1,6 +1,6 @@
 <!--<p-growl [value]="msgs"></p-growl>-->
 <p-tabView id="memberTab" (onChange)="handleTabChange($event)">
-  <p-tabPanel header="Team SII" [selected]="shouldSelected(1)"
+  <p-tabPanel header="Team SII" [selected]="shouldSelected(101)"
               headerStyleClass="whiteText"
               [headerStyle]="{'background-color':'#2399e5'}">
     <p-dataGrid [value]="members">
@@ -18,7 +18,7 @@
       </ng-template>
     </p-dataGrid>
   </p-tabPanel>
-  <p-tabPanel header="Team NII" [selected]="shouldSelected(2)"
+  <p-tabPanel header="Team NII" [selected]="shouldSelected(102)"
               [headerStyle]="{'background-color':'#9e57b4'}"
               headerStyleClass="whiteText">
       <p-dataGrid [value]="members">
@@ -36,7 +36,7 @@
         </ng-template>
       </p-dataGrid>
   </p-tabPanel>
-  <p-tabPanel header="Team HII" [selected]="shouldSelected(3)"
+  <p-tabPanel header="Team HII" [selected]="shouldSelected(103)"
               [headerStyle]="{'background-color':'#f8941d'}"
                 headerStyleClass="whiteText">
       <p-dataGrid [value]="members">
@@ -54,7 +54,7 @@
         </ng-template>
       </p-dataGrid>
   </p-tabPanel>
-  <p-tabPanel header="Team X" [selected]="shouldSelected(4)"
+  <p-tabPanel header="Team X" [selected]="shouldSelected(104)"
               [headerStyle]="{'background-color':'#b1d61b'}"
               headerStyleClass="whiteText">
       <p-dataGrid [value]="members">

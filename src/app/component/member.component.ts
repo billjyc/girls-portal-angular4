@@ -25,7 +25,7 @@ export class MembersComponent implements OnInit {
   page: number;
   rows: number;
   total: number;
-  team = 1;
+  team = 101;
 
   ngOnInit(): void {
     this.rows = 20;
@@ -58,7 +58,7 @@ export class MembersComponent implements OnInit {
   handleTabChange(e) {
     const index = e.index;
     if (index < 4) {
-      this.team = index + 1;
+      this.team = index + 101;
       Cookie.set('teamId', this.team.toString());
       this.getMembersByTeamId(this.team);
     } else {
