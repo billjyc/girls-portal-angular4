@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  serverHost: 'http://112.74.183.47:8081/girls/'
+  serverHost: 'http://43.142.158.92:8081/girls/'
 };
